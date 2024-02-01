@@ -40,4 +40,4 @@ player_filtered = player_filtered[player_filtered['PTS_PG'] >= 20]
 top_30_players = player_filtered.nlargest(30, 'E_OFF_RATING')
 
 
-top_30_players.to_csv('/Users/zachcarlson/Documents/NBA Project/2022-23/offensive_stats23.csv', index=False)
+top_30_players.to_csv('offensive_stats23.csv', index=False)
