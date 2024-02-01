@@ -23,7 +23,6 @@ for col in df_player_stats.columns:
     if col not in exclude_columns:
         df_player_stats[col + '_PG'] = df_player_stats.apply(lambda x: x[col] / x['GP'] if x['GP'] > 0 else 0, axis=1)
 
-# Assuming your per game columns end with '_per_game'
 per_game_columns = [col for col in df_player_stats.columns if '_PG' in col]
 
 # Round these specific columns to 2 decimal places
@@ -38,7 +37,6 @@ player_filtered = player_merged[player_merged['MIN_PG'] >= 27.1]
 player_filtered = player_filtered[player_filtered['GP'] >= 45]
 player_filtered = player_filtered[player_filtered['PTS_PG'] >= 20]
 
-# Assuming df is your original DataFrame and 'specific_stat_column' is the column of interest
 top_30_players = player_filtered.nlargest(30, 'E_OFF_RATING')
 
 
