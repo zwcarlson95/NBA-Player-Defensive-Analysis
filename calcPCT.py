@@ -1,8 +1,8 @@
 import pandas as pd
 
-team_stats = pd.read_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/merged_team_stats22.csv')
-player_stats = pd.read_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/player_merged_stats22.csv')
-defend_stats = pd.read_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/defend_stats22.csv')
+team_stats = pd.read_csv('merged_team_stats22.csv')
+player_stats = pd.read_csv('player_merged_stats22.csv')
+defend_stats = pd.read_csv('defend_stats22.csv')
 
 pct_merged = pd.merge(player_stats, team_stats, on='TEAM_ID', suffixes=('_PLAYER', '_TEAM'))
 
@@ -23,5 +23,5 @@ contribution_cols = [col for col in pct_merged.columns if '_PCT' in col]
 player_stats = pd.merge(player_stats, pct_merged[['PLAYER_ID'] + contribution_cols], on='PLAYER_ID')
 final_merged = pd.merge(player_stats, defend_stats, on='PLAYER_ID', how='inner')
 
-final_merged.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/merged_stats22.csv', index=False)
+final_merged.to_csv('merged_stats22.csv', index=False)
 
