@@ -10,7 +10,6 @@ df_hustle_stats = pd.DataFrame()
 df_defend_stats = pd.DataFrame()
 
 # Fetching data for the 2022-2023 season
-# Note: This is just a demonstration. You need to run this on your local machine.
 
 try:
     # Team Stats
@@ -31,7 +30,6 @@ try:
     df_defend_stats = defend_stats.get_data_frames()[0]
 
 
-    # Select relevant columns and process further as needed
     df_team_stats = df_team_stats[['TEAM_ID', 'GP', 'BLK', 'BLKA', 'DREB', 'STL']]
     df_team_hustle_stats = df_team_hustle_stats[['TEAM_ID', 'CONTESTED_SHOTS', 'CONTESTED_SHOTS_2PT', 'CONTESTED_SHOTS_3PT',
                                             'DEFLECTIONS', 'CHARGES_DRAWN', 'LOOSE_BALLS_RECOVERED', 'BOX_OUTS']]
@@ -58,8 +56,8 @@ except Exception as e:
 #print(df_defend_stats.head())
 
 
-df_team_stats.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/team_stats22', index=False)
-df_team_hustle_stats.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/team_hustle_stats22.csv', index=False)
-df_player_stats.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/player_stats22.csv', index=False)
-df_hustle_stats.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/hustle_stats22.csv', index=False)
-df_defend_stats.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/defend_stats22.csv', index=False)
+df_team_stats.to_csv('team_stats22', index=False)
+df_team_hustle_stats.to_csv('team_hustle_stats22.csv', index=False)
+df_player_stats.to_csv('player_stats22.csv', index=False)
+df_hustle_stats.to_csv('hustle_stats22.csv', index=False)
+df_defend_stats.to_csv('defend_stats22.csv', index=False)
