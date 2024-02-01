@@ -1,7 +1,7 @@
 import pandas as pd
 
-team_stats = pd.read_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/team_stats22')
-team_hustle = pd.read_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/team_hustle_stats22.csv')
+team_stats = pd.read_csv('team_stats22')
+team_hustle = pd.read_csv('team_hustle_stats22.csv')
 
 team_merged = pd.merge(team_stats, team_hustle, on='TEAM_ID', how='inner')
 
@@ -21,4 +21,4 @@ team_merged = team_merged.drop(columns=['GP', 'BLK', 'BLKA', 'STL', 'DREB', 'BOX
                            'CONTESTED_SHOTS_3PT', 'CONTESTED_SHOTS', 'DEFLECTIONS', 'LOOSE_BALLS_RECOVERED',
                            'CHARGES_DRAWN'])
 
-team_merged.to_csv('/Users/zachcarlson/Documents/NBA Project/2021-22/merged_team_stats22.csv', index=False)
+team_merged.to_csv('merged_team_stats22.csv', index=False)
