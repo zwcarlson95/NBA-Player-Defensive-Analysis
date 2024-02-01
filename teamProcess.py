@@ -12,7 +12,6 @@ for col in team_merged.columns:
     if col not in exclude_columns:
         team_merged[col + '_PG'] = team_merged.apply(lambda x: x[col] / x['GP'] if x['GP'] > 0 else 0, axis=1)
 
-# Assuming your per game columns end with '_per_game'
 per_game_columns = [col for col in team_merged.columns if '_PG' in col]
 
 # Round these specific columns to 2 decimal places
